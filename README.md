@@ -8,7 +8,7 @@ Stock management software for footwear shop built using python-eel and Svelte.
 
 - [Python3](https://www.python.org/) Installed
 
-- [Node.js](https://nodejs.org/en/) Install
+- [Node.js](https://nodejs.org/en/) Installed
 
 ## Installation
 
