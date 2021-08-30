@@ -2,6 +2,8 @@
 
 Stock management software for footwear shop built using python-eel and Svelte.
 
+![Screenshot](https://github.com/mochatek/StocKeeper/blob/master/Screenshot.png)
+
 ## Prerequisites
 
 - [Python3](https://www.python.org/) Installed
