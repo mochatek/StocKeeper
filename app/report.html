@@ -1,0 +1,109 @@
+<html>
+<head>
+    <style>
+        body {
+            padding:0;
+            margin:0;
+            font-family: 'Tahoma'
+        }
+        h1, h5 {
+            padding: 0.3rem;
+            margin: 0;
+        }
+        h1 {
+            color: #76bd38;
+        }
+        header {
+            text-align: center;
+            border-bottom: 1px solid lightgrey;
+        }
+        div {
+            margin: 0rem 2rem;
+        }
+        table{
+            margin: auto;
+            width: 95%;
+            border: 1px solid lightgrey;
+        }
+        th {
+            border: 1px solid lightgrey;
+            font-size: 14px;
+        }
+        td {
+            text-align: center;
+            border-bottom: 1px solid lightgrey;
+        }
+        caption {
+            font-weight: bold;
+            font-size: 16px;
+            padding: 0.3rem;
+            color: #405a7a;
+        }
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Excel Footwears</h1>
+        <h5>Peroor Jn, Ettumanoor, Kottayam, PH: 9447568366</h5>
+    </header>
+    <div>
+        <h5>Period: {{ period }}</h5>
+        <h5>Filter: {{ filter or '-' }}</h5>
+    </div>
+    <table align="center" cellspacing="0">
+        <caption>{{ category }}s {% if isSummary %}Summary{% else %}Report{% endif %}</caption>
+        {% if isSummary %}
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set total = namespace(value=0) %}
+            {% for item, quantity in invoices.items() %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item }}</td>
+                <td>{{ quantity }}</td>
+            </tr>
+            {% set total.value = total.value + quantity %}
+        {% endfor %}
+        </tbody>
+        {% else %}
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>#Invoice</th>
+                <th>Item</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set total = namespace(value=0) %}
+                {% for invoice in invoices %}
+                <tr>
+                    <td>{{ invoice["date"] }}</td>
+                    <td>{{ invoice["invoiceID"] }}</td>
+                    <td>{{ invoice["item"] }}</td>
+                    <td>{{ invoice["quantity"] }}</td>
+                </tr>
+                {% set total.value = total.value + invoice["quantity"] %}
+            {% endfor %}
+            </tbody>
+        {% endif %}
+        <tfoot>
+            <tr>
+                <tr>
+                    <th colspan="{% if isSummary %}2{% else %}3{% endif %}"></th>
+                    <th>Total: <span>{{ total.value }}</span></th>
+                </tr>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

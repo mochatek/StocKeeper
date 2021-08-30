@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  --primary: #89cb4e;
+  --secondary: #76bd38;
+  --bg: #f5f6f7;
+  --heading: #405a7a;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+}
+input,
+select,
+button {
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 5px;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  width: 12rem;
+}
+.alert {
+  padding: 0.5rem;
+  background: var(--bg);
+  color: var(--heading);
+  border-radius: 5px;
+  text-indent: 1rem;
+  font-size: small;
+}
+table {
+  width: 100%;
+  border: 1px solid lightgrey;
+  font-size: small;
+}
+th {
+  position: sticky;
+  top: 0;
+  border: 1px solid lightgrey;
+  color: var(--heading);
+  background: var(--bg);
+  padding: 0.5rem;
+}
+td {
+  border-top: 1px solid lightgrey;
+  text-align: center;
+  padding: 0.5rem;
+}
+.export {
+  font-size: 16px;
+}
+.export:hover {
+  color: var(--secondary);
+}

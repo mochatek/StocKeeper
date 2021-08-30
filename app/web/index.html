@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+	<link rel='stylesheet' href='assets/bundle.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Stock management software for footwear shop"
+    />
+    <script type="text/javascript" src="/eel.js"></script>
+    <title>StocKeeper</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+        const width = window.outerWidth
+        const height = window.outerHeight
+
+        window.onresize = () => {
+            window.resizeTo(width, height)
+        }
+    </script>
+    <script defer src='assets/bundle.js'></script>
+  </body>
+</html>
+
